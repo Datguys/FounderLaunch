@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* StartupCoPilot Design System - Premium AI SaaS Platform */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  .landing-theme {
+    /* Core Colors - Deep Navy/Black Base */
+    --background: 220 15% 8%;
+    --foreground: 210 40% 98%;
+    --surface: 220 13% 12%;
+    --surface-elevated: 220 11% 16%;
+
+    /* Glass Morphism */
+    --glass-background: 220 15% 15%;
+    --glass-border: 220 20% 25%;
+    --glass-overlay: 220 15% 8%;
+
+    /* Purple/Blue AI Accent Palette */
+    --primary: 262 100% 75%;
+    --primary-foreground: 220 15% 8%;
+    --primary-glow: 262 100% 85%;
+    
+    --secondary: 217 91% 60%;
+    --secondary-foreground: 220 15% 8%;
+    --secondary-glow: 217 91% 70%;
+
+    /* Interactive States */
+    --accent: 220 11% 16%;
+    --accent-foreground: 210 40% 98%;
+    --accent-hover: 220 11% 20%;
+
+    --muted: 220 13% 12%;
+    --muted-foreground: 220 9% 55%;
+
+    /* UI Elements */
+    --card: 220 13% 12%;
+    --card-foreground: 210 40% 98%;
+    --card-border: 220 20% 20%;
+
+    --popover: 220 13% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --border: 220 20% 20%;
+    --input: 220 13% 12%;
+    --ring: 262 100% 75%;
+
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 210 40% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 220 15% 8%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(262 100% 75%) 0%, hsl(217 91% 60%) 100%);
+    --gradient-surface: linear-gradient(135deg, hsl(220 15% 8%) 0%, hsl(220 13% 12%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsla(220, 15%, 15%, 0.8) 0%, hsla(220, 11%, 16%, 0.6) 100%);
+    
+    /* Shadows & Glows */
+    --shadow-soft: 0 4px 6px -1px hsla(220, 15%, 0%, 0.3);
+    --shadow-medium: 0 10px 15px -3px hsla(220, 15%, 0%, 0.4);
+    --shadow-large: 0 25px 50px -12px hsla(220, 15%, 0%, 0.5);
+    --glow-primary: 0 0 20px hsla(262, 100%, 75%, 0.3);
+    --glow-secondary: 0 0 20px hsla(217, 91%, 60%, 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html, body {
+  background: var(--gradient-background, hsl(220 15% 8%));
+  min-height: 100vh;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--gradient-background, hsl(220 15% 8%));
+  min-width: 0;
+  overflow-x: hidden;
+
+    @apply bg-background text-foreground font-normal;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Typography Scale */
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.025em;
+    font-weight: 600;
+  }
+
+  h1 {
+    @apply text-4xl lg:text-6xl;
+    line-height: 1.1;
+  }
+
+  h2 {
+    @apply text-3xl lg:text-5xl;
+    line-height: 1.2;
+  }
+
+  h3 {
+    @apply text-2xl lg:text-3xl;
+    line-height: 1.3;
+  }
+
+  .text-subtitle {
+    @apply text-lg lg:text-xl text-muted-foreground;
+    font-weight: 300;
+  }
+
+  /* Glass Morphism Components */
+  .glass {
+    background: hsla(var(--glass-background), 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsla(var(--glass-border), 0.2);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .glass-card {
+    background: linear-gradient(135deg, 
+      hsla(var(--glass-background), 0.9) 0%, 
+      hsla(var(--surface-elevated), 0.7) 100%);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsla(var(--glass-border), 0.15);
+    box-shadow: var(--shadow-medium);
+  }
+
+  /* Neumorphic Buttons */
+  .btn-neumorphic {
+    background: linear-gradient(145deg, hsl(var(--surface-elevated)), hsl(var(--surface)));
+    box-shadow: 
+      5px 5px 10px hsla(220, 15%, 0%, 0.3),
+      -5px -5px 10px hsla(220, 20%, 25%, 0.1);
+    border: 1px solid hsla(var(--border), 0.5);
+    transition: var(--transition-smooth);
+  }
+
+  .btn-neumorphic:hover {
+    transform: translateY(-1px);
+    box-shadow: 
+      6px 6px 12px hsla(220, 15%, 0%, 0.4),
+      -6px -6px 12px hsla(220, 20%, 25%, 0.15);
+  }
+
+  .btn-neumorphic:active {
+    transform: translateY(0);
+    box-shadow: 
+      inset 3px 3px 6px hsla(220, 15%, 0%, 0.3),
+      inset -3px -3px 6px hsla(220, 20%, 25%, 0.1);
+  }
+
+  /* Glow Effects */
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-secondary {
+    box-shadow: var(--glow-secondary);
+  }
+
+  /* Animated Gradients */
+  .gradient-text {
+    background: var(--gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Scroll Animations */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: var(--transition-smooth);
+  }
+
+  .fade-in-up.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--surface));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, hsl(var(--primary)), hsl(var(--secondary)));
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, hsl(var(--primary-glow)), hsl(var(--secondary-glow)));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+}
+
+.landing-theme {
+  background: var(--gradient-background, hsl(220 15% 8%));
+  color: hsl(var(--foreground, 210 40% 98%));
+  min-height: 100vh;
+}
